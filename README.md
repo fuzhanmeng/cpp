@@ -7,8 +7,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
-![C++ Primer Plus](https://github.com/fuzhanmeng/cpp/blob/main/pictures/C%2B%2BPrimerPlus.jpg)
+![C++ Primer Plus](https://raw.githubusercontent.com/fuzhanmeng/cpp/main/Pictures/C%2B%2BPrimerPlus.jpg)
 
 ## 项目目录结构
 
@@ -34,7 +33,6 @@
   - [第 13 章 : 类继承](./Practice/chapter_13/README.md)
 
 **第 IV 部分 : 高级主题和标准库**
-
   - [第 14 章 : C++中的代码重用](./Practice/chapter_14/README.md)
   - [第 15 章 : 友元、异常和其他](./Practice/chapter_15/README.md)
   - [第 16 章 : string 类和标准模板库](./Practice/chapter_16/README.md)
