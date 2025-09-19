@@ -1,0 +1,56 @@
+{
+    // VSCode 任务配置文件 (带注释)
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build single file", // 单文件编译任务
+            "type": "shell",
+            "command": "clang++", // 使用 clang++ 编译器
+            "args": [
+                "-std=c++20", // 使用 C++20 标准
+                "-Wall", // 开启所有警告
+                "-Wextra", // 额外警告
+                "-Wpedantic", // 严格遵循标准
+                "-Wshadow", // 局部变量遮蔽警告
+                "-O2", // 优化等级
+                "-g", // 生成调试信息
+                "${file}", // 当前编辑文件
+                "-o",
+                "${fileDirname}/${fileBasenameNoExtension}" // 输出可执行文件
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true // 默认构建任务
+            },
+            "problemMatcher": "$gcc" // 解析编译错误，高亮显示
+        },
+        {
+            "label": "Build project", // 使用 make 编译整个项目
+            "type": "shell",
+            "command": "make",
+            "group": "build",
+            "problemMatcher": "$gcc"
+        },
+        {
+            "label": "Clean project", // 清理项目
+            "type": "shell",
+            "command": "make",
+            "args": [
+                "clean"
+            ],
+            "group": "build"
+        },
+        {
+            "label": "Run clang-tidy", // 静态代码检查任务
+            "type": "shell",
+            "command": "clang-tidy",
+            "args": [
+                "${file}", // 当前编辑文件
+                "--",
+                "-std=c++20", // clang-tidy 解析时使用 C++20
+                "-I${workspaceFolder}/include" // 包含项目头文件路径
+            ],
+            "problemMatcher": [] // 不解析错误高亮
+        }
+    ]
+}

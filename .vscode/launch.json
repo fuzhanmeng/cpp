@@ -1,0 +1,66 @@
+{
+    // VSCode C++ 调试配置文件 (带注释)
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug with LLDB", // 使用 LLDB 调试器
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}", // 当前文件对应可执行文件
+            "args": [], // 程序运行参数
+            "stopAtEntry": false, // 是否在 main() 入口停下
+            "cwd": "${fileDirname}", // 工作目录
+            "environment": [],
+            "externalConsole": false, // 不弹出外部终端
+            "MIMode": "lldb", // 调试器类型
+            "preLaunchTask": "Build single file", // 调试前先执行编译任务
+            "setupCommands": [
+                {
+                    "description": "启用美化打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                },
+                {
+                    "description": "捕捉 C++ 异常",
+                    "text": "breakpoint set -E C++",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Debug with GDB", // 使用 GDB 调试器
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}", // 工作目录，可改为文件目录
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb", // 指定 gdb 路径
+            "preLaunchTask": "Build single file",
+            "setupCommands": [
+                {
+                    "description": "启用 GDB 美化打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Run without Debugging", // 直接运行，不调试
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Build single file",
+            "internalConsoleOptions": "neverOpen"
+        }
+    ]
+}

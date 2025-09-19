@@ -1,0 +1,82 @@
+{
+    // ==== 编辑器 ====
+    "editor.fontFamily": "Fira Code, JetBrains Mono, Consolas, 'Courier New', monospace", // 优先使用 Fira Code
+    "editor.fontLigatures": true, // 开启连字 (-> 显示为箭头)
+    "editor.fontSize": 18, // 稍微大一点，便于长时间阅读
+    "editor.tabSize": 4, // Tab 转 4 空格
+    "editor.insertSpaces": true,
+    "editor.wordWrap": "on", // 自动换行
+    "editor.minimap.enabled": false, // 关闭右侧缩略图
+    "editor.formatOnSave": true, // 保存时自动格式化
+    "editor.quickSuggestions": {
+        "other": true,
+        "comments": false,
+        "strings": true
+    },
+    "editor.inlineSuggest.enabled": true, // 内联提示
+    // ==== 自动保存 ====
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1200, // 1.2 秒延迟保存
+    // ==== 终端 ====
+    "workbench.panel.opensMaximized": "never", // 启动时展开底部面板
+    "terminal.integrated.defaultProfile.linux": "bash",
+    "terminal.integrated.fontSize": 15,
+    "terminal.integrated.scrollback": 5000,
+    // ==== C++ 设置（使用 clangd） ====
+    "C_Cpp.intelliSenseEngine": "disabled", // 禁用 cpptools 补全，避免冲突
+    "clangd.path": "/usr/bin/clangd",
+    "clangd.arguments": [
+        "--background-index",
+        "--clang-tidy",
+        "--completion-style=detailed",
+        "--header-insertion=never"
+    ],
+    // 开启 snippet 支持
+    "editor.snippetSuggestions": "inline",
+    "editor.tabCompletion": "on",
+    // ==== include 路径（示例，根据项目调整） ====
+    "C_Cpp.default.includePath": [
+        "${workspaceFolder}/include",
+        "/usr/include",
+        "/usr/local/include",
+        "/usr/include/x86_64-linux-gnu",
+        "/usr/local/include/opencv4", // OpenCV (如果有安装)
+    ],
+    // ==== C/C++ 标准 ====
+    "C_Cpp.default.cppStandard": "c++20",
+    "C_Cpp.default.cStandard": "c17",
+    // ==== 文件关联 ====
+    "files.associations": {
+        "*.h": "cpp",
+        "*.hpp": "cpp",
+        "iostream": "cpp",
+        "vector": "cpp",
+        "string": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "memory": "cpp",
+        "thread": "cpp",
+        "mutex": "cpp",
+        "future": "cpp",
+        "chrono": "cpp",
+        "filesystem": "cpp",
+        "algorithm": "cpp",
+        "tuple": "cpp",
+        "optional": "cpp",
+        "variant": "cpp",
+        "any": "cpp"
+    },
+    // ==== Python (如果你偶尔用 Python) ====
+    "python.defaultInterpreterPath": "/usr/bin/python3",
+    "python.analysis.autoImportCompletions": true,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.formatting.provider": "black",
+    // ==== Git ====
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "testing.automaticallyOpenPeekViewDuringAutoRun": true,
+    "terminal.integrated.stickyScroll.enabled": false,
+    "explorer.confirmDelete": false
+}
