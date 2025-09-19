@@ -7,7 +7,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-![C++ Primer Plus](https://raw.githubusercontent.com/fuzhanmeng/cpp/main/Pictures/C%2B%2BPrimerPlus.jpg)
+![C++ Primer Plus](https://raw.githubusercontent.com/fuzhanmeng/cpp/main/pictures/C%2B%2BPrimerPlus.jpg)
 
 ## 项目目录结构
 
