@@ -29,7 +29,4 @@ void cheers(int x)
     }
 }
 
-double cube(double x)
-{
-    return x * x * x;
-}
+double cube(double x) { return x * x * x; }

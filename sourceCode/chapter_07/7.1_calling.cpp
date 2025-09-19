@@ -15,7 +15,4 @@ int main()
 }
 
 // function definition
-void simple()
-{
-    std::cout << "I'm but a simple function" << std::endl;
-}
+void simple() { std::cout << "I'm but a simple function" << std::endl; }

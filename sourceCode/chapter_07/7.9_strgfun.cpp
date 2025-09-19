@@ -5,10 +5,10 @@ unsigned int c_in_str(const char *str, char ch);
 
 int main()
 {
-    char mmm[15] = "minimum";   // string in an array
+    char mmm[15] = "minimum"; // string in an array
     std::cout << "sizeof mmm = " << sizeof mmm << std::endl;
 
-    const char *wail = "ululate";   // wail points to string
+    const char *wail = "ululate"; // wail points to string
     std::cout << "sizeof *wail = " << sizeof(*wail) << std::endl;
 
     unsigned int ms = c_in_str(mmm, 'm');

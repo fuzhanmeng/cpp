@@ -24,10 +24,9 @@ int main()
     return 0;
 }
 
-
 void n_char(char a, int b)
 {
-    while (b -- > 0)
+    while (b-- > 0)
     {
         std::cout << a;
     }

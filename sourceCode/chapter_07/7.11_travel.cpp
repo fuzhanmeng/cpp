@@ -10,7 +10,7 @@ struct travel_time
 travel_time sum(travel_time t1, travel_time t2);
 void show_time(travel_time t);
 
-int main ()
+int main()
 {
     travel_time day1 = {5, 45};
     travel_time day2 = {4, 55};
@@ -32,7 +32,4 @@ travel_time sum(travel_time t1, travel_time t2)
     return total;
 }
 
-void show_time(travel_time t)
-{
-    std::cout << t.hours << " hours," << t.mins << " times" << std::endl;
-}
+void show_time(travel_time t) { std::cout << t.hours << " hours," << t.mins << " times" << std::endl; }

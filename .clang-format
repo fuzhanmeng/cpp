@@ -1,0 +1,80 @@
+# ==============================
+# Clang-Format 配置文件
+# 适用于现代 C++ 开发
+# 基于 Google C++ Style Guide
+# 使用 Allman 花括号风格
+# ==============================
+
+# 基础样式，继承 Google 风格
+BasedOnStyle: Google
+
+# ------------------------------
+# 指针和引用对齐
+# PointerAlignment: 左侧对齐 or 右侧对齐
+# "Right" 表示 int* ptr; 星号靠变量名
+PointerAlignment: Right
+
+# ------------------------------
+# 类/结构访问修饰符前的缩进
+# -4 表示访问修饰符不缩进，靠左对齐
+AccessModifierOffset: -4
+
+# ------------------------------
+# 缩进宽度
+IndentWidth: 4             # 每级缩进 4 空格
+TabWidth: 4                # Tab 键宽度按 4 空格处理
+ContinuationIndentWidth: 4 # 续行缩进宽度
+
+# ------------------------------
+# 空行控制
+MaxEmptyLinesToKeep: 1     # 连续空行最多保留 1 行
+
+# ------------------------------
+# 函数大括号和换行方式
+BreakBeforeBraces: Allman   # 大括号单独换行 (Allman 风格)
+AllowShortFunctionsOnASingleLine: true  # 短函数可以单行
+AllowShortIfStatementsOnASingleLine: true # 短 if 语句允许单行
+
+# ------------------------------
+# 函数参数换行
+# AllowAllParametersOfDeclarationOnNextLine: true
+# 允许函数声明参数换行到下一行，并保持对齐
+AllowAllParametersOfDeclarationOnNextLine: true
+
+# 括号内是否对齐
+AlignAfterOpenBracket: true
+
+# ------------------------------
+# switch/case 缩进
+IndentCaseLabels: true
+
+# ------------------------------
+# Objective-C 特性（可保留）
+ObjCBlockIndentWidth: 4
+ObjCSpaceAfterProperty: true
+SpacesInContainerLiterals: false
+
+# ------------------------------
+# 每行长度控制
+ColumnLimit: 120   # 每行最多 120 个字符
+
+# ------------------------------
+# 空格和操作符对齐
+AlignOperands: true             # 换行操作符对齐
+SpacesInSquareBrackets: false   # 中括号不加空格
+SpaceAfterCStyleCast: false     # C 风格强制类型转换后不加空格
+SpaceBeforeAssignmentOperators: true # 赋值运算符前加空格
+SpacesBeforeTrailingComments: 1      # 行尾注释前空格数
+
+# ------------------------------
+# 声明和初始化
+AlignConsecutiveDeclarations: false            # 多行声明不按 = 对齐
+BreakConstructorInitializersBeforeComma: true  # 构造函数初始化列表逗号前换行并对齐
+
+# ------------------------------
+# 注释对齐
+AlignTrailingComments: true
+
+# ==============================
+# End of configuration
+# ==============================

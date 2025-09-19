@@ -2,7 +2,7 @@
 #include <iostream>
 char* buildStr(char ch, int times);
 
-int main ()
+int main()
 {
     int times;
     char ch;
@@ -13,13 +13,13 @@ int main ()
     std::cout << "Enter an integer: ";
     std::cin >> times;
 
-    char *ps = buildStr(ch, times);
+    char* ps = buildStr(ch, times);
     std::cout << ps << std::endl;
-    delete [] ps;
+    delete[] ps;
 
     ps = buildStr('+', 20);
     std::cout << ps << "-DONE-" << ps << std::endl;
-    delete []ps;
+    delete[] ps;
 
     return 0;
 }
@@ -27,7 +27,7 @@ int main ()
 // builds string made of n c characters
 char* buildStr(char ch, int times)
 {
-    char * pstr = new char [times + 1];
+    char* pstr = new char[times + 1];
     pstr[times] = '\0';
 
     while (times-- > 0)

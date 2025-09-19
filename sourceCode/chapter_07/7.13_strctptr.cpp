@@ -1,22 +1,22 @@
 // strctptr.cpp -- functions with pointer to structure arguments
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 // structure templates
 struct polar
 {
-    double distance;      // distance from origin
-    double angle;         // direction from origin
+    double distance; // distance from origin
+    double angle;    // direction from origin
 };
 struct rect
 {
-    double x;             // horizontal distance from origin
-    double y;             // vertical distance from origin
+    double x; // horizontal distance from origin
+    double y; // vertical distance from origin
 };
 
 // prototypes
-void rect_to_polar(const rect * pxy, polar * pda);
-void show_polar (const polar * pda);
+void rect_to_polar(const rect* pxy, polar* pda);
+void show_polar(const polar* pda);
 
 int main()
 {
@@ -44,5 +44,4 @@ void rect_to_polar(const rect* pxy, polar* pda)
 void show_polar(const polar* pda)
 {
     std::cout << "distance =" << pda->distance << " angle = " << pda->angle << std::endl;
-    
 }

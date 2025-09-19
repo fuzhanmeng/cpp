@@ -1,15 +1,15 @@
 // arrobj.cpp -- functions with array objects
 
-#include <iostream>
 #include <array>
+#include <iostream>
 #include <string>
 
 const int Seasons = 4;
 const std::array<std::string, Seasons> Snames = {"Spring", "Summer", "Fall", "Winter"};
-void fill(std::array<double,Seasons> * pa);
-void show(std::array<double,Seasons> pa);
+void fill(std::array<double, Seasons> *pa);
+void show(std::array<double, Seasons> pa);
 
-int main ()
+int main()
 {
     std::array<double, 4> expenses;
 
@@ -19,8 +19,7 @@ int main ()
     return 0;
 }
 
-
-void fill(std::array<double,Seasons> * pa)
+void fill(std::array<double, Seasons> *pa)
 {
     for (int i = 0; i < Seasons; i++)
     {
@@ -29,7 +28,7 @@ void fill(std::array<double,Seasons> * pa)
     }
 }
 
-void show(std::array<double,Seasons> pa)
+void show(std::array<double, Seasons> pa)
 {
     double total = 0;
     std::cout << "\nEXPENSEX";
@@ -40,5 +39,4 @@ void show(std::array<double,Seasons> pa)
         total += pa[i];
     }
     std::cout << "the total = " << total << std::endl;
-
 }

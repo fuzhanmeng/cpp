@@ -9,7 +9,7 @@ int main()
 
     while ((std::cin >> total >> choices) && choices <= total)
     {
-        std::cout << "You have one chance in";
+        std::cout << "You have one chance in ";
         std::cout << probability(total, choices);
         std::cout << " of winning" << std::endl;
         std::cout << "Next two numbers (q to quit):";
@@ -27,7 +27,7 @@ long double probability(unsigned numbers, unsigned picks)
     long double n;
     unsigned p;
 
-    for(n = numbers, p = picks; p > 0;  n--, p--)
+    for (n = numbers, p = picks; p > 0; n--, p--)
     {
         result = result * n / p;
     }

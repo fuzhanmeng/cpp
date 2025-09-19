@@ -18,15 +18,9 @@ int main()
     return 0;
 }
 
-double betsy(int lns)
-{
-    return 0.05 * lns;
-}
+double betsy(int lns) { return 0.05 * lns; }
 
-double pam(int lns)
-{
-    return 0.03 * lns + 0.0004 * lns * lns;
-}
+double pam(int lns) { return 0.03 * lns + 0.0004 * lns * lns; }
 
 void estimate(int lines, double (*fp)(int x))
 {

@@ -1,7 +1,7 @@
 // structfun.cpp -- functions with a structure argument
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 
 // polar coordinates
 struct polar
@@ -31,7 +31,7 @@ int main()
 
         std::cout << "Next two numbers (q to quit): ";
     }
-    std::cout << "Done" << std::endl;\
+    std::cout << "Done" << std::endl;
     return 0;
 }
 
@@ -43,7 +43,6 @@ polar rect_to_polar(rect xy)
     answer.angle = atan2(xy.y, xy.x);
 
     return answer;
-
 }
 
 // show polar coordinates, converting angle to degrees
