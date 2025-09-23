@@ -1,46 +1,64 @@
 {
     // ==== 编辑器 ====
-    "editor.fontFamily": "Fira Code, JetBrains Mono, Consolas, 'Courier New', monospace", // 优先使用 Fira Code
-    "editor.fontLigatures": true, // 开启连字 (-> 显示为箭头)
-    "editor.fontSize": 18, // 稍微大一点，便于长时间阅读
+    "editor.fontFamily": "Fira Code, JetBrains Mono, Consolas, 'Courier New', monospace", // 优先使用 Fira Code 等编程字体
+    "editor.fontLigatures": true, // 开启连字 (-> 显示为箭头等符号)
+    "editor.fontSize": 18, // 字体大小，便于长时间阅读
     "editor.tabSize": 4, // Tab 转 4 空格
-    "editor.insertSpaces": true,
+    "editor.insertSpaces": true, // 使用空格代替 Tab
     "editor.wordWrap": "on", // 自动换行
     "editor.minimap.enabled": false, // 关闭右侧缩略图
     "editor.formatOnSave": true, // 保存时自动格式化
     "editor.quickSuggestions": {
-        "other": true,
-        "comments": false,
-        "strings": true
+        "other": true, // 普通代码位置启用快速建议
+        "comments": false, // 注释中不启用
+        "strings": true // 字符串中启用
     },
-    "editor.inlineSuggest.enabled": true, // 内联提示
+    "editor.inlineSuggest.enabled": true, // 内联提示（灰色预测文本）
     // ==== 自动保存 ====
-    "files.autoSave": "afterDelay",
-    "files.autoSaveDelay": 1200, // 1.2 秒延迟保存
+    "files.autoSave": "afterDelay", // 自动保存
+    "files.autoSaveDelay": 500, // 0.5 秒延迟保存
     // ==== 终端 ====
-    "workbench.panel.opensMaximized": "never", // 启动时展开底部面板
-    "terminal.integrated.defaultProfile.linux": "bash",
-    "terminal.integrated.fontSize": 15,
-    "terminal.integrated.scrollback": 5000,
+    "workbench.panel.opensMaximized": "never", // 启动时不要最大化底部面板
+    "terminal.integrated.defaultProfile.linux": "bash", // 默认终端 bash
+    "terminal.integrated.fontSize": 15, // 终端字体大小
+    "terminal.integrated.scrollback": 5000, // 最大滚动缓冲行数
     // ==== C++ 设置（使用 clangd） ====
-    "C_Cpp.intelliSenseEngine": "disabled", // 禁用 cpptools 补全，避免冲突
-    "clangd.path": "/usr/bin/clangd",
+    "C_Cpp.intelliSenseEngine": "disabled", // 禁用 cpptools 内置补全，避免和 clangd 冲突
+    "clangd.path": "/usr/bin/clangd", // clangd 可执行文件路径
     "clangd.arguments": [
+        // 索引和性能相关
         "--background-index",
+        "--pch-storage=memory", // 预编译头存储方式
+        "--background-index-priority=normal",
+        // 补全相关
+        "--completion-style=detailed", // 显示函数签名、返回类型等详细信息
+        "--all-scopes-completion",
+        "--limit-results=100",
+        // 代码检查和格式化
         "--clang-tidy",
-        "--completion-style=detailed",
-        "--header-insertion=never"
+        "--clang-tidy-checks=*", // 开启所有检查，或根据需要定制
+        "--pretty", // 美化输出
+        // 头文件管理
+        "--header-insertion=iwyu", // Include What You Use 风格
+        "--header-insertion-decorators=true", // 显示头文件插入装饰器
+        // 函数参数提示
+        "--function-arg-placeholders=true", // 个人推荐开启，有助于了解参数类型
+        // 项目特定设置（根据需要添加）
+        // "--query-driver=/usr/bin/clang++",  // 指定编译器
+        // "-std=c++20",  // 指定C++标准
+        // "--compile-commands-dir=build"  // 指定编译命令目录
     ],
-    // 开启 snippet 支持
-    "editor.snippetSuggestions": "inline",
-    "editor.tabCompletion": "on",
+    // ==== 补全相关 ====
+    "editor.snippetSuggestions": "inline", // snippet 内联显示，和 clangd 补全混合
+    "editor.tabCompletion": "on", // 支持 Tab 键补全 snippet
+    "editor.wordBasedSuggestions": "allDocuments", // VSCode 自带模糊补全（跨文件生效，用来兜底）
     // ==== include 路径（示例，根据项目调整） ====
     "C_Cpp.default.includePath": [
         "${workspaceFolder}/include",
         "/usr/include",
         "/usr/local/include",
         "/usr/include/x86_64-linux-gnu",
-        "/usr/local/include/opencv4", // OpenCV (如果有安装)
+        "/usr/local/include/opencv4" // OpenCV (如果有安装)
     ],
     // ==== C/C++ 标准 ====
     "C_Cpp.default.cppStandard": "c++20",
@@ -69,13 +87,14 @@
         "any": "cpp"
     },
     // ==== Python (如果你偶尔用 Python) ====
-    "python.defaultInterpreterPath": "/usr/bin/python3",
-    "python.analysis.autoImportCompletions": true,
-    "python.analysis.typeCheckingMode": "basic",
-    "python.formatting.provider": "black",
+    "python.defaultInterpreterPath": "/usr/bin/python3", // 默认 Python 解释器
+    "python.analysis.autoImportCompletions": true, // 自动导入补全
+    "python.analysis.typeCheckingMode": "basic", // 基本类型检查
+    "python.formatting.provider": "black", // 使用 black 自动格式化
     // ==== Git ====
-    "git.autofetch": true,
-    "git.confirmSync": false,
+    "git.autofetch": true, // 自动拉取
+    "git.confirmSync": false, // 同步时无需确认
+    // ==== 其它 ====
     "testing.automaticallyOpenPeekViewDuringAutoRun": true,
     "terminal.integrated.stickyScroll.enabled": false,
     "explorer.confirmDelete": false
