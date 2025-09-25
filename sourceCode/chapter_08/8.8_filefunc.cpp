@@ -1,16 +1,16 @@
 // filefunc.cpp -- function with ostream& parameter
+#include <iostream>
 #include <cstdlib>
 #include <fstream>
-#include <ios>
-#include <iostream>
 #include <ostream>
 
+//  ostream 输出流 
 void file_it(std::ostream& os, double fo, const double fe[], int n);
 const int LIMIT = 5;
 
 int main()
 {
-    std::ofstream fout;
+    std::ofstream fout; //  ofstream: out put file stream
     const char* fn = "ep-data.txt";
     fout.open(fn);
     if (!fout.is_open())
@@ -39,7 +39,7 @@ int main()
     return 0;
 }
 
-void file_it(std::ostream& os, double fo, const double fe[], int n)
+void file_it(std::ostream& os, double fo, const double* fe, int n)
 {
     // save intiial formatting state
     std::ios_base::fmtflags initial;
