@@ -1,4 +1,4 @@
-// left.cpp -- string function with a default argument 
+// left.cpp -- string function with a default argument
 #include <iostream>
 
 const int ArSize = 80;
@@ -28,7 +28,7 @@ char* left(const char* str, int n)
         n = 0;
     }
     char* p = new char[n + 1];
-    int i;
+    int i;        
     for (i = 0; i < n && str[i]; i++)
     {
         p[i] = str[i];
