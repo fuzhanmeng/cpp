@@ -18,13 +18,8 @@ struct debts
 int main()
 {
     int things[6] = {13, 31, 103, 301, 310, 130};
-    struct debts mr_E[3] =
-    {
-        {"Ima Wolfe", 2400.0},
-        {"Ura Foxe", 1300.0},
-        {"Iby Stout", 1800.0}
-    };
-    double * pd[3]; 
+    struct debts mr_E[3] = {{"Ima Wolfe", 2400.0}, {"Ura Foxe", 1300.0}, {"Iby Stout", 1800.0}};
+    double* pd[3];
 
     // set pointers to the amount members of the structures in mr_E
     for (int i = 0; i < 3; i++)
