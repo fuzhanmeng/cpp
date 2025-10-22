@@ -5,6 +5,7 @@
 
 #include <iostream>
 #include <ostream>
+#include <iomanip>
 
 void Stock::acquire(const std::string& co, long n, double pr)
 {
@@ -61,8 +62,6 @@ void Stock::update(double price)
     set_tot();
 }
 
-#include <iostream>
-#include <iomanip>
 
 void Stock::show()
 {
