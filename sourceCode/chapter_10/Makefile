@@ -6,7 +6,7 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -O2 -g
 TARGET = stock00
 
 # 列出构建此目标所需的所有 .cpp 源文件
-SRCS = 10.8_stock20.cpp 10.9_usestock2.cpp
+SRCS = 10.11_stack.cpp 10.12_stacker.cpp
 
 # 自动生成对应的 .o 对象文件列表：将 SRCS 中所有 .cpp 后缀替换为 .o
 OBJS = $(SRCS:.cpp=.o)
