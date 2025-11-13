@@ -1,5 +1,9 @@
-// randwalk.cpp -- using the Vector class
-// compile with the vect.cpp file
+/**
+ * @file 11.15_randwalk.cpp
+ * @brief using the Vector class
+ * @author fzm
+ * @date 2025-11-13
+ */
 
 #include <cstdlib>
 #include <ctime>

@@ -1,4 +1,10 @@
-// mytime2.cpp -- implementing Time methods
+/**
+ * @file 11.8_mytime2.cpp
+ * @brief implementing Time methods
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #include <iostream>
 #include "11.7_mytime2.h"
 

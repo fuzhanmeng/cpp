@@ -1,4 +1,9 @@
-// mytime1.h -- Time class before operator overloading
+/**
+ * @file 11.5_mytime1.cpp
+ * @brief Time class before operator overloading
+ * @author fzm
+ * @date 2025-11-13
+ */
 
 #include <iostream>
 #include "11.4_mytime1.h"

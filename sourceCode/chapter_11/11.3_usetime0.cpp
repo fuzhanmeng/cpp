@@ -1,5 +1,9 @@
-// usetime0.cpp -- using the first drart of the Time class
-// compile usetime0.cpp and mytime0.cpp together
+/**
+ * @file 11.3_usetime0.cpp
+ * @brief using the first drart of the Time class
+ * @author fzm
+ * @date 2025-11-13
+ */
 
 #include <iostream>
 

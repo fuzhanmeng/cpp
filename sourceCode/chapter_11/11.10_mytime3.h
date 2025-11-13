@@ -1,4 +1,10 @@
-// mytime3.cpp -- Time class with friends
+/**
+ * @file 11.10_mytime3.h
+ * @brief Time class with friends
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #ifndef MYTIME3_H_
 #define MYTIME3_H_
 

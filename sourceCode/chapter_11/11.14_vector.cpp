@@ -1,4 +1,10 @@
-// vect.cpp -- methods for the Vector class
+// vect.cpp -- 
+/**
+ * @file 11.14_vector.cpp
+ * @brief methods for the Vector class
+ * @author fzm
+ * @date 2025-11-13
+ */
 
 #include <cmath>
 #include <iostream>

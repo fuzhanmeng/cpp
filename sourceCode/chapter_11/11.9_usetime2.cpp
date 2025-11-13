@@ -1,5 +1,9 @@
-// usetime2.cpp -- using the third draft of the Time class
-// compile usetime2.cpp and mytime2.cpp togther
+/**
+ * @file 11.9_usetime2.cpp
+ * @brief using the third draft of the Time class
+ * @author fzm
+ * @date 2025-11-13
+ */
 
 #include <iostream>
 

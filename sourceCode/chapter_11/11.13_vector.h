@@ -1,4 +1,11 @@
-// vector.h -- Vextor class with <<, mode state
+// vector.h -- 
+/**
+ * @file 11.13_vector.cpp
+ * @brief Vextor class with <<, mode state
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #ifndef VECTOR_H_
 #define VECTOR_H_
 

@@ -1,4 +1,10 @@
-// mytime3.cpp -- implementing
+/**
+ * @file 11.11_mytime3.cpp
+ * @brief implementing Time methods
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #include <iostream>
 #include <ostream>
 

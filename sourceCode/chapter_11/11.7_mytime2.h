@@ -1,4 +1,11 @@
-// mytime2.h -- Time class after operator voerloading
+// mytime2.h -- 
+/**
+ * @file 11.7_mytime2.h
+ * @brief Time class after operator voerloading
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #ifndef MYTIME2_H_
 #define MYTIME2_H_
 

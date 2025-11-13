@@ -1,4 +1,10 @@
-// mytime1.h -- Time class before operator over loading
+/**
+ * @file 11.4_mytime1.h
+ * @brief Time class before operator over loading
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #ifndef MYTIME1_H_
 #define MYTIME1_H_
 

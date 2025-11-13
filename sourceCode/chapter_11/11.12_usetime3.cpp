@@ -1,5 +1,10 @@
-// usetime3.cpp -- using the fourth draft of the Time class
-//  compile usetime3.cpp and mytime3.cpp together
+/**
+ * @file 11.12_usetime3.cpp
+ * @brief using the fourth draft of the Time class
+ * @author fzm
+ * @date 2025-11-13
+ */
+
 #include <iostream>
 
 #include "11.10_mytime3.h"
