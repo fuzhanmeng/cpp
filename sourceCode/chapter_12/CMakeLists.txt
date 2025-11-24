@@ -22,7 +22,8 @@ if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 # 创建可执行文件
-add_executable(a.out 12.2_stringBag.cpp 12.3_vegnews.cpp)
+# add_executable(a.out 12.2_stringBag.cpp 12.3_vegnews.cpp)
+add_executable(a.out 12.5_string1.cpp 12.6_sayings1.cpp)
 
 # 设置目标的包含目录（头文件路径）
 target_include_directories(a.out PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})

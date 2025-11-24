@@ -40,4 +40,7 @@
 # debug information files
 *.dwo
 
+# CMakeLists.txt
+**/build/
+
 cpp-main/ 
