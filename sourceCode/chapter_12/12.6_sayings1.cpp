@@ -1,5 +1,5 @@
 /**
- * @file 12.6_sayings1
+ * @file 12.6_sayings1.cpp
  * @brief using expanded String class
  * @author fzm
  * @date 2025-11-24

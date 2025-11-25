@@ -1,5 +1,5 @@
 /**
- * @file 12.7_sayings2
+ * @file 12.7_sayings2.cpp
  * @brief using pointers to objects
  * @author fzm
  * @date 2025-11-25

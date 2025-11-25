@@ -1,5 +1,5 @@
 /**
- * @file 12.4_string1
+ * @file 12.4_string1.h
  * @brief fix and augmented string class definition
  * @author fzm
  * @date 2025-11-24
