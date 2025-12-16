@@ -26,7 +26,10 @@ endif()
 # add_executable(a.out 13.2_tabtenn0.cpp 13.3_usett0.cpp)
 # add_executable(a.out 13.5_tabtenn1.cpp 13.6_usett1.cpp)
 # add_executable(a.out 13.8_brass.cpp 13.9_usebrass1.cpp)
-add_executable(a.out 13.8_brass.cpp 13.10_usebrass2.cpp)
+# add_executable(a.out 13.8_brass.cpp 13.10_usebrass2.cpp)
+# add_executable(a.out 13.12_acctABC.cpp 13.13_usebrass3.cpp)
+# add_executable(a.out 13.15_dma.cpp 13.16_usedma.cpp)
+
 
 
 # 设置目标的包含目录（头文件路径）
