@@ -36,7 +36,6 @@
         "--limit-results=100",
         // 代码检查和格式化
         "--clang-tidy",
-        "--clang-tidy-checks=*", // 开启所有检查，或根据需要定制
         "--pretty", // 美化输出
         // 头文件管理
         "--header-insertion=iwyu", // Include What You Use 风格
