@@ -10,10 +10,12 @@
 #include "13.1_tabtenn0.h"
 
 TableTennisPlayer::TableTennisPlayer(const std::string& fn, const std::string& ln, bool ht)
-    : firstName_(fn), lastName_(ln), hasTable_(ht)
-{
+    : firstName_(fn), lastName_(ln), hasTable_(ht) {
 }
 
-TableTennisPlayer::~TableTennisPlayer() {}
+TableTennisPlayer::~TableTennisPlayer() {
+}
 
-void TableTennisPlayer::Name() const { std::cout << lastName_ << ", " << firstName_ << "  "; }
+void TableTennisPlayer::Name() const {
+    std::cout << lastName_ << ", " << firstName_ << "  ";
+}

@@ -9,9 +9,7 @@
 #include "13.4_tabtenn1.h"
 
 TableTennisPlayer::TableTennisPlayer(const std::string& fn, const std::string& ln, bool ht)
-    : firstName_(fn), lastName_(ln), HasTable_(ht)
-{
-}
+    : firstName_(fn), lastName_(ln), HasTable_(ht) {}
 
 TableTennisPlayer::~TableTennisPlayer() {}
 
@@ -19,8 +17,7 @@ void TableTennisPlayer::Name() const { std::cout << lastName_ << ", " << firstNa
 
 // RatedPlayer methods
 RatedPlayer::RatedPlayer(unsigned int r, const std::string& fn, const std::string& ln, bool ht)
-    : TableTennisPlayer(fn, ln, ht)
-{
+    : TableTennisPlayer(fn, ln, ht) {
     rating_ = r;
 }
 

@@ -9,8 +9,7 @@
 
 #include <string>
 
-class TableTennisPlayer
-{
+class TableTennisPlayer {
 public:
     TableTennisPlayer(const std::string& fn = "none", const std::string& ln = "none", bool ht = false);
     ~TableTennisPlayer();
@@ -25,8 +24,7 @@ private:
     bool HasTable_;
 };
 
-class RatedPlayer : public TableTennisPlayer
-{
+class RatedPlayer : public TableTennisPlayer {
 public:
     RatedPlayer(unsigned int rat = 0, const std::string& fn = "none", const std::string& ln = "none", bool ht = false);
     RatedPlayer(unsigned int rat, const TableTennisPlayer& tb);

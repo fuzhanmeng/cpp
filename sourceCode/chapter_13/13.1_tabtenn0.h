@@ -10,16 +10,19 @@
 #include <string>
 
 // simple base class
-class TableTennisPlayer
-{
+class TableTennisPlayer {
 public:
     TableTennisPlayer();
     TableTennisPlayer(const std::string& fn = "none", const std::string& ln = "none", bool ht = false);
     ~TableTennisPlayer();
 
     void Name() const;
-    bool HasTable() const { return hasTable_; };
-    void ResetTable(bool v) { hasTable_ = v; };
+    bool HasTable() const {
+        return hasTable_;
+    };
+    void ResetTable(bool v) {
+        hasTable_ = v;
+    };
 
 private:
     std::string firstName_;

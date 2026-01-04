@@ -5,32 +5,25 @@
  * @date 2025-12-02
  */
 #include <iostream>
+
 #include "13.1_tabtenn0.h"
 
-int main()
-{
+int main() {
     TableTennisPlayer player1("Chuck", "Blizzard", true);
     TableTennisPlayer player2("Tara", "Boomdea", false);
     player1.Name();
-    if (player1.HasTable()) 
-    {
+    if (player1.HasTable()) {
         std::cout << "has a table" << std::endl;
-    }
-    else 
-    {
+    } else {
         std::cout << "hasn't a table " << std::endl;
     }
 
     player2.Name();
-    if (player2.HasTable()) 
-    {
+    if (player2.HasTable()) {
         std::cout << "has a table" << std::endl;
-    }
-    else 
-    {
+    } else {
         std::cout << "hasn't a table " << std::endl;
     }
-    
-    return 0;
 
+    return 0;
 }

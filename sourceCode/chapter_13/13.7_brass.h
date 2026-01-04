@@ -9,8 +9,7 @@
 
 #include <string>
 
-class Brass
-{
+class Brass {
 public:
     Brass(const std::string& fn = "Nullbody", long an = -1, double bal = 0.0);
     ~Brass();
@@ -27,8 +26,7 @@ private:
     double balance_;
 };
 
-class BrassPlus :public Brass
-{
+class BrassPlus : public Brass {
 public:
     BrassPlus(const std::string& fn = "Nullbody", long an = -1, double bal = 0.0, double ml = 500, double r = 0.11125);
     BrassPlus(const Brass& ba, double ml = 500, double r = 0.11125);

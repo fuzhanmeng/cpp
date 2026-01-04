@@ -8,8 +8,7 @@
 #define DMA_H
 
 #include <ostream>
-class baseDMA
-{
+class baseDMA {
 public:
     baseDMA(const char* l = "null", int r = 0);
     baseDMA(const baseDMA& rs);
@@ -22,8 +21,7 @@ private:
     int rating_;
 };
 
-class lacksDMA : public baseDMA
-{
+class lacksDMA : public baseDMA {
 public:
     lacksDMA(const char* c = "blank", const char* l = "null", int r = 0);
     lacksDMA(const char* c, const baseDMA& rs);
@@ -33,15 +31,11 @@ public:
     virtual ~lacksDMA();
 
 private:
-    enum
-    {
-        COL_LEN = 40
-    };
+    enum { COL_LEN = 40 };
     char color[COL_LEN];
 };
 
-class hasDMA : public baseDMA
-{
+class hasDMA : public baseDMA {
 public:
     hasDMA(const char* s = "none", const char* l = "null", int r = 0);
     hasDMA(const char* s, const baseDMA& rs);

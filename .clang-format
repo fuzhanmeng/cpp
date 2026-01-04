@@ -29,8 +29,8 @@ BraceWrapping:
 
 # ------------------------------
 # 指针 & 引用（贴变量名）
-PointerAlignment: Right
-ReferenceAlignment: Right
+PointerAlignment: Left
+ReferenceAlignment: Left
 
 # ------------------------------
 # 访问修饰符
@@ -48,7 +48,7 @@ ColumnLimit: 120
 # 控制语句
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
-AllowShortFunctionsOnASingleLine: None
+AllowShortFunctionsOnASingleLine: All
 
 # ------------------------------
 # 对齐策略（与你代码一致：不强行对齐）

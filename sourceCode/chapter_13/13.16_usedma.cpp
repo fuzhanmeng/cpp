@@ -4,11 +4,11 @@
  * @author fzm
  * @date 2025-12-15
  */
-#include "13.14_dma.h"
 #include <iostream>
 
-int main()
-{
+#include "13.14_dma.h"
+
+int main() {
     baseDMA shirt("Portablelly", 8);
     lacksDMA balloon("red", "Blimpo", 4);
     hasDMA map("Mercator", "Buffalo Keys", 5);
@@ -21,7 +21,7 @@ int main()
 
     std::cout << "Displaying hasDMA object:\n";
     std::cout << map << std::endl;
-    
+
     lacksDMA balloon2(balloon);
     std::cout << "Result of lacksDMA copy:\n";
     std::cout << balloon2 << std::endl;
