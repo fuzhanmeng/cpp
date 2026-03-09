@@ -13,7 +13,6 @@
 #include <cstring>
 #include <iostream>
 #include <ostream>
-#include <string>
 #include <unordered_set>
 
 constexpr int kServerPort = 8888;
@@ -46,6 +45,7 @@ int main() {
     int listen_fd = socket(AF_INET, SOCK_STREAM, 0);
     if (listen_fd == -1) {
         std::cout << "create listen fd fail" << std::endl;
+        return -1;
     }
 
     // 3. set reuseaddr
@@ -114,6 +114,8 @@ int main() {
                 std::cout << "Ctrl + C" << std::endl;
                 continue;
             }
+            std::cerr << "epoll_wait 发生严重错误退出!" << std::endl;
+            break;
         }
 
         for (int i = 0; i < num_ready; ++i) {
@@ -121,36 +123,39 @@ int main() {
 
             // 1. new client
             if (active_fd == listen_fd) {
-                struct sockaddr client_addr {};
-                socklen_t client_len = sizeof(client_addr);
-                int new_client = accept(listen_fd, (struct sockaddr*)&client_addr, &client_len);
-                if (new_client == -1) {
-                    std::cerr << "accept new client fail" << std::endl;
-                    close(new_client);
-                    return -1;
-                } else if (new_client > 0) {
-                    std::cout << "new client is accept success" << std::endl;
+                while (true) {
+                    struct sockaddr_in client_addr {};
+                    socklen_t client_len = sizeof(client_addr);
 
-                    // 1. set non-blocking
-                    SetNonBlocking(new_client);
+                    int new_client = accept(listen_fd, (struct sockaddr*)&client_addr, &client_len);
+                    if (new_client == -1) {
+                        if (errno == EAGAIN || errno == EWOULDBLOCK) {
+                            break;
+                        }
+                        std::cerr << "accept new client fail" << std::endl;
+                        return -1;
+                    } else if (new_client > 0) {
+                        std::cout << "new client is accept success" << std::endl;
 
-                    // 2. add client_fds
-                    client_fds.emplace(new_client);
+                        // 1. set non-blocking
+                        SetNonBlocking(new_client);
 
-                    // 3. add epoll_event
-                    struct epoll_event client_event {};
-                    client_event.events = EPOLLIN;
-                    client_event.data.fd = new_client;
-                    epoll_ctl(epoll_fd, EPOLL_CTL_ADD, new_client, &client_event);
+                        // 2. add client_fds
+                        client_fds.emplace(new_client);
+
+                        // 3. add epoll_event
+                        struct epoll_event client_event {};
+                        client_event.events = EPOLLIN;
+                        client_event.data.fd = new_client;
+                        epoll_ctl(epoll_fd, EPOLL_CTL_ADD, new_client, &client_event);
+                    }
                 }
             } else {
                 // old client
-
                 std::array<char, kBufferSize> buffer{};
                 ssize_t bytes_recv = recv(active_fd, buffer.data(), buffer.size() - 1, 0);
                 if (bytes_recv > 0) {
                     std::cout << "fd: " << active_fd << ", recv a message: " << buffer.data() << std::endl;
-
                     ssize_t bytes_send = send(active_fd, buffer.data(), bytes_recv, 0);
                     if (bytes_send > 0) {
                         std::cout << "fd: " << active_fd << ", send a message: " << buffer.data() << std::endl;
@@ -174,7 +179,6 @@ int main() {
                         client_fds.erase(active_fd);
                         close(active_fd);
                     }
-                    break;
                 }
             }
         }
@@ -184,6 +188,7 @@ int main() {
     for (int fd : client_fds) {
         const char* bye = "eploo is exiting, bye";
         send(fd, bye, strlen(bye), 0);
+        shutdown(fd, SHUT_WR);
         close(fd);
     }
 
