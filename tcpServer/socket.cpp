@@ -9,7 +9,6 @@
 #include <cstdlib>
 #include <iostream>
 
-
 Socket::Socket() {
     fd_ = socket(AF_INET, SOCK_STREAM, 0);
     if (fd_ == -1) {

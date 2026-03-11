@@ -13,4 +13,4 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -g")
 
 # 5. 告诉 CMake，把这几个源文件编译成一个叫 "server" 的可执行程序
 # 注意：头文件 socket.h 不需要写在这里，CMake 会自动顺着 #include 找到它
-add_executable(server main.cpp socket.cpp)
+add_executable(server main.cpp socket.cpp epoll.cpp channel.cpp event_loop.cpp)
