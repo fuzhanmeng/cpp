@@ -1,43 +1,80 @@
 #pragma once
 
-#include <cstdint>
 #include <functional>
 
 class EventLoop;
 
 class Channel {
 public:
-    // 构造函数：一个 Channel 必须绑定一个 EventLoop 和一个 fd
+    using EventCallback = std::function<void()>;
+
     Channel(EventLoop* loop, int fd);
     ~Channel();
 
+    // 严禁拷贝
     Channel(const Channel&) = delete;
     Channel& operator=(const Channel&) = delete;
 
-    void SetReadCallback(std::function<void()> const& callback);
-
-    // 当 Epoll 发现这个 fd 有动静时，EventLoop 会调用这个函数
+    // 1. 核心事件分发接口 (供 EventLoop::Poller 触发)
     void HandleEvent();
 
-    // 告诉底层的 Epoll，开始监听这个 fd 的可读事件
-    void EnableRead();
+    // 2. 回调注册接口 (供 TcpConnection / Acceptor 绑定逻辑)
+    void SetReadCallback(const EventCallback& callback) { read_callback_ = callback; }
+    void SetWriteCallback(const EventCallback& callback) { write_callback_ = callback; }
+    void SetCloseCallback(const EventCallback& callback) { close_callback_ = callback; }
+    void SetErrorCallback(const EventCallback& callback) { error_callback_ = callback; }
 
+    // 3. 物理属性与内核事件状态
     int fd() const { return fd_; }
+    int events() const { return events_; }
+    void set_revents(int revents) { revents_ = revents; }
 
-    // 返回正在监听的事件（交由 Epoll 注册用）
-    uint32_t listen_events() const { return listen_events_; }
+    // 4. 事件位掩码 (Bitmask) 操作接口
+    void EnableRead() {
+        events_ |= kReadEvent;
+        Update();
+    }
+    void DisableRead() {
+        events_ &= ~kReadEvent;
+        Update();
+    }
 
-    // Epoll 触发时，把实际发生的事件（比如 EPOLLIN）写进来
-    uint32_t ready_events() const { return ready_events_; }
-    void set_ready_events(uint32_t ev) { ready_events_ = ev; }
+    void EnableWrite() {
+        events_ |= kWriteEvent;
+        Update();
+    }
+    void DisableWrite() {
+        events_ &= ~kWriteEvent;
+        Update();
+    }
+
+    void DisableAll() {
+        events_ = kNoneEvent;
+        Update();
+    }
+
+    // 状态查询
+    bool IsWriting() const { return events_ & kWriteEvent; }
+    bool IsReading() const { return events_ & kReadEvent; }
+    bool IsNoneEvent() const { return events_ == kNoneEvent; }
 
 private:
-    EventLoop* loop_; // 这个 Channel 归哪个大管家（EventLoop）管
-    int fd_; // 这个 Channel 绑定的底层文件描述符
+    // 将最新的 events_ 状态同步给内核的 Epoll
+    void Update();
 
-    uint32_t listen_events_; // 我们期望 Epoll 监听的事件（比如 EPOLLIN）
-    uint32_t ready_events_; // Epoll 实际返回给我们的活跃事件
+    // 平台相关的底层事件宏映射 (对应 sys/epoll.h)
+    static const int kNoneEvent;
+    static const int kReadEvent;
+    static const int kWriteEvent;
 
-    // 🌟 处理预案：存放上层传进来的可读回调函数
-    std::function<void()> read_callback_;
+    EventLoop* loop_;
+    int fd_;
+
+    int events_; // 用户期望监听的事件 (User-interested events)
+    int revents_; // 内核实际返回的就绪事件 (Ready events)
+
+    EventCallback read_callback_;
+    EventCallback write_callback_;
+    EventCallback close_callback_;
+    EventCallback error_callback_;
 };

@@ -5,6 +5,7 @@
 #include <sys/socket.h>
 #include <unistd.h>
 
+#include <cerrno>
 #include <cstdint>
 #include <cstdlib>
 #include <iostream>
@@ -52,9 +53,12 @@ void Socket::Listen() {
 
 int Socket::Accept(struct sockaddr_in* client_addr) {
     socklen_t client_len = sizeof(struct sockaddr_in);
-    int client_fd = accept(fd_, (struct sockaddr*)client_addr, &client_len);
+    int client_fd = accept4(fd_, (struct sockaddr*)client_addr, &client_len, SOCK_NONBLOCK | SOCK_CLOEXEC);
     if (client_fd == -1) {
-        std::cout << "accept fail" << std::endl;
+        // 在非阻塞 Listening Socket 下，EAGAIN 和 EWOULDBLOCK 是正常现象（没有新连接了）
+        if (errno != EAGAIN && errno != EWOULDBLOCK && errno != EINTR) {
+            std::cerr << "[Socket] accept4 发生底层错误,errno: " << errno << std::endl;
+        }
         return -1;
     }
     return client_fd;
